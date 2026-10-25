@@ -1,6 +1,7 @@
 interface Experience { company: string; role: string; period: string; description: string }
 interface AiExploration { area: string; title: string; description: string; skills: string[] }
 interface CompetitionResult { title: string; rank: number; teams: number; url: string }
+interface Award { title: string; year: number; placement: string }
 export const portfolio = {
   name: 'Fajar Adi Nugroho',
   title: 'Software Engineer',
@@ -29,7 +30,6 @@ export const portfolio = {
   ai: {
     title: 'Learning through experiments.',
     introduction: 'Notebook experiments across structured data, images, and language, alongside research in federated and reinforcement learning.',
-    competitionSummary: 'Achieved top-3% team placements in Shopee Code League Product Detection and Marketing Analytics, and a top-6% placement in Sentiment Analysis.',
     competitions: [
       { title: 'Product Detection', rank: 22, teams: 823, url: 'https://www.kaggle.com/competitions/shopee-product-detection-student/leaderboard' },
       { title: 'Marketing Analytics', rank: 10, teams: 368, url: 'https://www.kaggle.com/competitions/student-shopee-code-league-marketing-analytics/leaderboard' },
@@ -43,5 +43,8 @@ export const portfolio = {
   },
   certifications: ['AWS Certified Machine Learning Engineer – Associate', 'AWS Certified AI Practitioner', 'CompTIA Cybersecurity+', 'Google Cybersecurity'],
   education: { degree: 'B.Eng. in Engineering Physics', institution: 'Institut Teknologi Bandung', period: '2017 — 2021' },
-  awards: ['2nd place · Data Analytics FIND IT! 2020', '2nd place · Datavidia Arkavidia 6.0 · 2020']
+  awards: [
+    { title: 'Data Analytics FIND IT!', year: 2020, placement: '2nd place' },
+    { title: 'Datavidia Arkavidia 6.0', year: 2020, placement: '2nd place' }
+  ] satisfies Award[]
 };
