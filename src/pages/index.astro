@@ -1,0 +1,36 @@
+---
+import Header from '../components/Header.astro';
+import SystemGraphic from '../components/SystemGraphic.astro';
+import { portfolio as p } from '../data/portfolio';
+import '../styles/global.css';
+const title = `${p.name} — ${p.title}`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={`${p.title} based in Bandung, Indonesia. ${p.introduction}`} />
+    <meta name="theme-color" content="#f8f7f3" /><link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" /><meta property="og:title" content={title} /><meta property="og:description" content={p.introduction} />
+    <meta name="twitter:card" content="summary" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={p.introduction} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <section id="home" class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy"><p class="eyebrow location"><span></span>{p.location}</p><p class="intro-name">Hello, I’m {p.name}.</p><h1 id="hero-title">Software<br /><em>Engineer.</em></h1><p class="hero-description">{p.introduction}</p><div class="hero-links"><a class="button" href="#experience">Explore my experience <span aria-hidden="true">↓</span></a><a class="text-link" href="#contact">Get in touch <span aria-hidden="true">↗</span></a></div></div>
+        <div class="hero-art"><SystemGraphic /><p><span>01 /</span> Connecting ideas to working software.</p></div>
+        <div class="hero-bottom"><span>SOFTWARE · SYSTEMS · APPLIED AI</span><span>Scroll to explore ↓</span></div>
+      </section>
+      <section id="experience" class="section wrap" aria-labelledby="experience-title">
+        <div class="section-heading"><p class="eyebrow">01 / Experience</p><h2 id="experience-title">Software for the<br />world it works in.</h2></div>
+        <article class="current-role"><div class="role-meta"><span class="status">Current role</span><p>{p.current.period}</p></div><div><h3>{p.current.company}</h3><p class="role-title">{p.current.role}</p><p class="role-description">{p.current.description}</p><ul class="tags"><li>Software development</li><li>Cross-industry projects</li></ul></div></article>
+        <div class="earlier"><p class="eyebrow">Earlier chapters</p><div class="timeline">{p.experience.map(job => <article><p class="date">{job.period}</p><h3>{job.company}</h3><p class="role-title">{job.role}</p><p>{job.description}</p></article>)}</div></div>
+      </section>
+      <section id="research" class="research-section" aria-labelledby="research-title"><div class="wrap research-grid"><div><p class="eyebrow">02 / Research</p><p class="research-note">Undergraduate thesis<br />ITB · 2021</p></div><article><h2 id="research-title">{p.research.title}</h2><p>{p.research.description}</p><ul class="tags">{p.research.tags.map(tag => <li>{tag}</li>)}</ul><div class="research-flow" aria-hidden="true"><span>Estimate position</span><span>→</span><span>Decide & control</span><span>→</span><span>Simulate & learn</span></div></article></div></section>
+      <section id="expertise" class="section wrap" aria-labelledby="expertise-title"><div class="section-heading"><p class="eyebrow">03 / Expertise & learning</p><h2 id="expertise-title">A software foundation.<br />A broader perspective.</h2></div><div class="skills">{p.skills.map((skill, i) => <article><span class="skill-number">0{i + 1}</span><h3>{skill.title}</h3>{skill.items.map(item => <p>{item}</p>)}</article>)}</div><div class="credentials"><div><p class="eyebrow">Certifications earned</p>{p.certifications.map(cert => <p class="credential">{cert}</p>)}</div><div><p class="eyebrow">Education</p><p class="credential">{p.education.degree}</p><p>{p.education.institution}<br />{p.education.period}</p></div><div><p class="eyebrow">Recognition</p>{p.awards.map(award => <p>{award}</p>)}</div></div></section>
+      <section id="contact" class="contact-section" aria-labelledby="contact-title"><div class="wrap"><p class="eyebrow">04 / Get in touch</p><div class="contact-grid"><div><h2 id="contact-title">Let’s build<br /><em>what’s next.</em></h2><p>I welcome conversations about software engineering roles and projects.</p></div><div class="contact-links"><a href={`mailto:${p.email}`}>{p.email}<span aria-hidden="true">↗</span></a><a href={p.linkedin}>LinkedIn<span aria-hidden="true">↗</span></a></div></div></div></section>
+    </main><footer class="wrap footer"><span>© {new Date().getFullYear()} {p.name}</span><a href="#home">Back to top ↑</a><span>{p.location}</span></footer>
+  </body>
+</html>

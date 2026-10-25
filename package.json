@@ -1,0 +1,20 @@
+{
+  "name": "fajar-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "preview": "astro preview"
+  },
+  "dependencies": { "astro": "5.18.2" },
+  "devDependencies": { "@astrojs/check": "0.9.6", "typescript": "5.9.3" },
+  "engines": { "node": ">=20.11.1" },
+  "overrides": {
+    "@astrojs/language-server": "2.15.4",
+    "unifont": "0.7.4",
+    "unstorage": "1.17.3"
+  }
+}

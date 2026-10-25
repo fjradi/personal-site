@@ -1,0 +1,20 @@
+<header class="header wrap">
+  <a class="wordmark" href="#home" aria-label="Fajar Adi Nugroho, home">Fajar<span>.</span></a>
+  <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">+</span></button>
+  <nav id="navigation" aria-label="Main navigation">
+    <a href="#experience">Experience</a><a href="#research">Research</a><a href="#expertise">Expertise</a><a class="nav-contact" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const navigation = document.querySelector<HTMLElement>('#navigation');
+  function closeMenu() { toggle?.setAttribute('aria-expanded', 'false'); navigation?.classList.remove('is-open'); }
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(expanded));
+    navigation?.classList.toggle('is-open', expanded);
+  });
+  navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { closeMenu(); toggle.focus(); } });
+  matchMedia('(min-width: 761px)').addEventListener('change', closeMenu);
+</script>
