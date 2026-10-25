@@ -12,7 +12,13 @@ npm run build
 npm run preview
 ```
 
-The development URL is normally http://localhost:4321. Production output goes to `dist/`; preview serves that output. No deployment is configured.
+The development URL is normally http://localhost:4321. Production output goes to `dist/`; preview serves that output.
+
+## Cloudflare Workers
+
+`wrangler.jsonc` configures the `me` Worker at https://me.fjradi96.workers.dev to serve only static assets from `dist/`. Private documents and project sources are not uploaded.
+
+Run `npx --yes wrangler@3.114.15 login` once to authorize Cloudflare, then `npm run deploy` to check, build, and publish. Wrangler is pinned to a Node 20.11.1-compatible version. Its authentication stays outside the repository; `.wrangler/` is ignored.
 
 ## Maintain
 
