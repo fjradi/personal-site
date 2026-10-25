@@ -1,4 +1,6 @@
 interface Experience { company: string; role: string; period: string; description: string }
+interface AiExploration { area: string; title: string; description: string; skills: string[] }
+interface CompetitionResult { title: string; rank: number; teams: number; url: string }
 export const portfolio = {
   name: 'Fajar Adi Nugroho',
   title: 'Software Engineer',
@@ -22,8 +24,23 @@ export const portfolio = {
   skills: [
     { title: 'Software engineering', items: ['Python · C++ · Node.js · Golang', 'Databases · SQL · Redis', 'End-to-end development'] },
     { title: 'Platforms & delivery', items: ['Linux · Docker · CI/CD', 'Apache Kafka'] },
-    { title: 'AI & applied research', items: ['Machine learning · Federated learning', 'Reinforcement learning · Simulation'] }
+    { title: 'Machine learning & AI', items: ['Machine learning · Deep learning', 'Computer vision · Natural language processing', 'Federated learning · Reinforcement learning', 'Data analysis & feature engineering', 'Model evaluation & interpretation'] }
   ],
+  ai: {
+    title: 'Learning through experiments.',
+    introduction: 'Notebook experiments across structured data, images, and language, alongside research in federated and reinforcement learning.',
+    competitionSummary: 'Achieved top-3% team placements in Shopee Code League Product Detection and Marketing Analytics, and a top-6% placement in Sentiment Analysis.',
+    competitions: [
+      { title: 'Product Detection', rank: 22, teams: 823, url: 'https://www.kaggle.com/competitions/shopee-product-detection-student/leaderboard' },
+      { title: 'Marketing Analytics', rank: 10, teams: 368, url: 'https://www.kaggle.com/competitions/student-shopee-code-league-marketing-analytics/leaderboard' },
+      { title: 'Sentiment Analysis', rank: 21, teams: 356, url: 'https://www.kaggle.com/competitions/student-shopee-code-league-sentiment-analysis/leaderboard' }
+    ] satisfies CompetitionResult[],
+    explorations: [
+      { area: 'Machine learning', title: 'From features to predictions', description: 'Classification and regression experiments, including data analysis, feature engineering, and model comparison.', skills: ['Classification & regression', 'Feature engineering', 'Model evaluation'] },
+      { area: 'Computer vision', title: 'Learning from images', description: 'Image classification and fingerprint matching experiments, including image preprocessing and evaluation.', skills: ['Image classification', 'Feature matching', 'Image processing'] },
+      { area: 'Natural language processing', title: 'Understanding sentiment', description: 'Text preprocessing and sentiment analysis experiments, including model training and evaluation.', skills: ['Text preprocessing', 'Sentiment analysis', 'Text classification'] }
+    ] satisfies AiExploration[]
+  },
   certifications: ['AWS Certified Machine Learning Engineer – Associate', 'AWS Certified AI Practitioner', 'CompTIA Cybersecurity+', 'Google Cybersecurity'],
   education: { degree: 'B.Eng. in Engineering Physics', institution: 'Institut Teknologi Bandung', period: '2017 — 2021' },
   awards: ['2nd place · Data Analytics FIND IT! 2020', '2nd place · Datavidia Arkavidia 6.0 · 2020']
